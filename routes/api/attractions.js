@@ -6,7 +6,7 @@ const Restaurant = require('../../models/restaurant');
 const Activity = require('../../models/activity');
 
 
-router.get('/api/hotels', (req, res, next) => {
+router.get('/hotels', (req, res, next) => {
   Hotel.findAll()
        .then(hotel => {
          res.json(hotel);
@@ -14,7 +14,7 @@ router.get('/api/hotels', (req, res, next) => {
        .catch(next);
 });
 
-router.get('/api/restaurants', (req, res, next) => {
+router.get('/restaurants', (req, res, next) => {
   Restaurant.findAll()
        .then(rest => {
          res.json(rest);
@@ -22,7 +22,7 @@ router.get('/api/restaurants', (req, res, next) => {
        .catch(next);
 });
 
-router.get('/api/activities', (req, res, next) => {
+router.get('/activities', (req, res, next) => {
   Activity.findAll()
        .then(act => {
          res.json(act);
