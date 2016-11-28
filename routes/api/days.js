@@ -25,7 +25,7 @@ router.get('/', function (req, res, next) {
 // Create a new day with no attractions
 // POST /days
 router.post('/', function (req, res, next) {
-
+console.log('made it')
     Day.create(req.body)
         .then(function (createdDay) {
             res.status(201).send(createdDay);
