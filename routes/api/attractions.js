@@ -1,4 +1,5 @@
 const router = require('express').Router();
+module.exports = router;
 
 const Hotel = require('../../models/hotel');
 const Restaurant = require('../../models/restaurant');
@@ -28,12 +29,3 @@ router.get('/api/activities', (req, res, next) => {
        })
        .catch(next);
 });
-
-
-
-
-
-
-
-
-module.exports = router;
