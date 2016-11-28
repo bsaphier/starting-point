@@ -4,6 +4,7 @@ const Hotel = require('../../models/hotel');
 const Restaurant = require('../../models/restaurant');
 const Activity = require('../../models/activity');
 
+
 router.get('/api/hotels', (req, res, next) => {
   Hotel.findAll()
        .then(hotel => {
@@ -27,5 +28,12 @@ router.get('/api/activities', (req, res, next) => {
        })
        .catch(next);
 });
+
+
+
+
+
+
+
 
 module.exports = router;
