@@ -13,29 +13,31 @@ var attractionsModule = (function () {
   // ~~~~~~~~~~~~~~~~~~~~~~~
     // These variables are not available until after the AJAX request succeeds in `options.js`. You definitely need to update something here!
   // ~~~~~~~~~~~~~~~~~~~~~~~
-  var enhanced = {
-    hotels: $.get('/api/attractions/hotels')
-      .then(function(hotels) {
-        hotels.map(attractionModule.create);
-      })
-      .catch(err => {
-        console.log(err).bind(console);
-      }),
-    restaurants: $.get('/api/attractions/restaurants')
-      .then(function(restaurants) {
-        restaurants.map(attractionModule.create);
-      })
-      .catch(err => {
-        console.log(err).bind(console);
-      }),
-    activities: $.get('/api/attractions/activities')
-      .then(function(activities) {
-        activities.map(attractionModule.create);
-      })
-      .catch(err => {
-        console.log(err).bind(console);
-      })
-  };
+  var enhanced = {};
+
+  $.get('/api/attractions/hotels')
+    .then(hotels => {
+      enhanced.hotels = hotels.map(attractionModule.create);
+    })
+    .catch(err => {
+      console.log(err).bind(console);
+    });
+
+  $.get('/api/attractions/restaurants')
+    .then(restaurants => {
+      enhanced.restaurants = restaurants.map(attractionModule.create);
+    })
+    .catch(err => {
+      console.log(err).bind(console);
+    });
+
+  $.get('/api/attractions/activities')
+    .then(activities => {
+      enhanced.activities = activities.map(attractionModule.create);
+    })
+    .catch(err => {
+      console.log(err).bind(console);
+    });
 
   // private helper methods (only available inside the module)
 
