@@ -4,9 +4,9 @@ var Hotel = require('../models/hotel');
 var Restaurant = require('../models/restaurant');
 var Activity = require('../models/activity');
 
-router.use(require('./api/attractions'));
+router.use('/api', require('./api'));
 
-router.use('/days', require('./api/days'));
+// router.use('/api/days', require('./api/days'));
 
 router.get('/', function (req, res, next) {
     res.render('index');
@@ -28,7 +28,5 @@ router.get('/options', function (req, res, next) {
         });
 
 });
-
-router.use('/days', require('./api/days'));
 
 module.exports = router;
