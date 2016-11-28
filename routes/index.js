@@ -4,6 +4,9 @@ var Hotel = require('../models/hotel');
 var Restaurant = require('../models/restaurant');
 var Activity = require('../models/activity');
 
+// router.use('./api/attractions')
+router.use(require('./api/attractions'));
+
 router.get('/', function(req, res, next) {
   Promise.all([
     Hotel.findAll(),
